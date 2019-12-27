@@ -1,0 +1,48 @@
+<h1>index.html.erb</h1>
+<% if user_signed_in? %>
+    <h2>投稿する</h2>
+  <%= form_for @post do |f| %>
+    <%= f.text_field :content %>
+    <%= f.submit %>
+  <% end %>
+  <div id="main">
+    <img src="main-img.jpg">
+</div>
+
+
+<div id="article_wrap">
+
+    <div id="article_list">
+        
+  
+  
+  <hr>
+  <% @posts.each do |post| %>
+  <div>
+    <h2><a href="/posts/<%= post.id %>"><%= post.content %></a></h2>
+    <p><a href="/users/<%= post.user.id %>"><%= post.user.email %></a></p>
+    
+  <% end %>
+
+<% else %>
+  <%= link_to "ユーザー登録", new_user_registration_path %>
+  <%= link_to "ログイン", new_user_session_path %>
+<% end %>
+
+
+
+        
+
+    </div>
+
+    <div id="sidebar">
+        
+        <h2>★PV数ランキング</h2>
+        <ul>
+            <li><a href="">記事タイトル記事タイトル１記事タイトル記事タイトル<span>（10PV）</span></a></li>
+            <li><a href="">記事タイトル記事タイトル１記事タイトル記事タイトル<span>（8PV）</span></a></li>
+            <li><a href="">記事タイトル記事タイトル１記事タイトル記事タイトル<span>（2PV）</span></a></li>
+        </ul>
+    </div>
+    <div class="clear"></div>
+</div>

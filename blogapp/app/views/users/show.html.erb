@@ -1,0 +1,27 @@
+<h1>show.html.erb</h1>
+<h3><%= @user.email %></h3>
+<h2>ブログの中身</h2>
+<% @user.posts.each do |post| %>
+<div id="title">
+    <div>
+  <h1><a href="/posts/<%= post.id %>"><%= post.content %></a></h1>
+    </div>
+</div>
+  <hr>
+<% end %>
+<%= link_to "ユーザー一覧へ", users_path %>
+<%= link_to "ホームへ戻る", posts_path %>
+
+
+
+    <div id="sidebar">
+        
+        <h2>★PV数ランキング</h2>
+        <ul>
+            <li><a href="">記事タイトル記事タイトル１記事タイトル記事タイトル<span>（10PV）</span></a></li>
+            <li><a href="">記事タイトル記事タイトル１記事タイトル記事タイトル<span>（8PV）</span></a></li>
+            <li><a href="">記事タイトル記事タイトル１記事タイトル記事タイトル<span>（2PV）</span></a></li>
+        </ul>
+    </div>
+    <div class="clear"></div>
+</div>
